@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Register New User</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Syahrizaldev" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="background">
+    <main class="main">
+      <div class="container">
+        <section class="wrapper">
+          <div class="heading">
+            <h1 class="text text-large">Sign up</h1>
+            <p class="text text-normal">
+              Already had an account ?<span
+                ><a href="login.html" class="text text-links">sign in</a></span
+              >
+            </p>
+          </div>
+          <form class="form" id="reg-form">
+            <div class="input-control">
+              <label for="email" class="input-label" hidden
+                >Email Address</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="input-field"
+                placeholder="Email Address"
+              />
+            </div>
+            <div class="input-control">
+              <label for="password" class="input-label" hidden>Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="input-field"
+                placeholder="Password"
+              />
+            </div>
+            <button type="submit" id="submit" onclick="registerUser()">Register</button>
+          </form>
+        </section>
+      </div>
+    </main>
+	<script>
+		const submit = document.getElementById('submit')
+			// submit.addEventListener('', registerUser)
+
+			async function registerUser(event) {
+				event.preventDefault()
+				const username = document.getElementById('email').value
+				const password = document.getElementById('password').value
+
+				const result = await fetch('/api/register', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						username,
+						password
+					})
+				}).then((res) => res.json())
+
+				if (result.status === 'ok') {
+					// everythign went fine
+					alert('Success')
+				} else {
+					alert(result.error)
+				}
+			}
+	</script>
+  </body>
+</html>

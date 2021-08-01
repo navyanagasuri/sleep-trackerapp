@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+    <title>
+      Form Registration
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body style="background-image: linear-gradient(to bottom right, orchid, lightskyblue);
+">
+<style>
+
+input , select
+  {
+    padding: 15px 35px;
+    font-size: 16px;
+    color:black;
+    background-color:white;
+    border: 1px black;
+    border-radius: 30px;
+    margin-top: 5px;
+    size: 50;
+    color:#50394c;
+  
+   
+  }
+
+  input:focus 
+  {
+    outline: none;
+    background-color:#d5e1df;
+    color:#50394c;
+
+  }
+ 
+fieldset
+{
+  
+  border-color:#ada397;
+  background-color:#e4d1d1;
+  margin-left: 400px;
+  margin-right: 400px;
+  margin-top:10px;
+  padding-top:20px;
+  padding-bottom:20px;
+  padding-right: 30px;
+  
+}
+legend
+{
+  color:#50394c; text-shadow: 2px 2px 2px ;
+  background-color: lightpink;
+  padding: 10px 8px;
+  margin-left: 30%;
+}
+  button 
+  {
+    display: block;
+    padding: 12px 38px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    color: black;
+    background-color: #fff;
+    border: 2px solid var(--blue);
+    border-radius: 24px;
+    cursor: pointer;
+    margin: auto;  
+  }
+  button:hover 
+  {
+    color:white;
+    background-color:lightskyblue;
+    
+  }
+
+</style> 
+
+    <form method="POST" action="/add" style="color:brown;  font-size:larger ; text-align:left;font-weight: bold; text-shadow:1px 1px lightyellow;" id="form"  return onsubmit="validateForm()"  autocomplete="on" >
+      <fieldset>
+   <legend style="font-size: xx-large;" >Sleep Tracker </legend>
+        <header></header>
+   <label for="todaydate">Date&emsp;&emsp;&emsp;:</label>
+        <input type="text" id="dob" name="date" required><br>
+        <br>
+        <label for="part_name">Name&emsp;&emsp; :</label>
+        <input type="text"  id="part_name" name="name" placeholder="John Doe" required ><br>
+        <br>
+    <label for="age"> Age&emsp;&emsp;&emsp;:</label> 
+    <input type="number" id="age" name="age" required><br><br>
+    <label>Sleep Time :</label> 
+    <input type="text" id="diff" name="sleepTime" ><br><br>
+        <label for="disturb" name="disturbance">Disturbances :</label>
+        <select name="disturbance" id="disturb">
+          <option value="Phone">Phone</option>
+          <option value="stress">stress</option>
+          <option value="Uncomfortable sleeping environment">Uncomfortable sleeping environment</option>
+          <option value="sickness">sickness</option>
+        </select><br>
+       <br>
+        <div><button id="submit" type="submit" value="submit">Submit</button></div>
+        <div><a href="/dashboard">Dashboard</a></div>
+        <div><a href="/tips">Tips</a></div>
+</form>
+</fieldset>
+</body>
+</html>
+
+
